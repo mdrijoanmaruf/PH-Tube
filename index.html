@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PH Tube</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="md:max-w-7xl mx-auto w-[94%]">
+        <div>
+            <nav class="flex justify-between gap-3 items-center py-6">
+                <div class="cursor-pointer">
+                    <a href="index.html">
+                        <img class="w-[80%]" src="assets/Logo.png" alt="">
+                    </a>
+                </div>
+                <div class="flex items-center justify-center">
+                    <input class="text-[14px] px-2 py-2 border-none bg-gray-100 rounded-md md:w-[320px] w-full" type="text" name="" placeholder="Search videos.." id="">
+                </div>
+                <div>
+                    <button class="bg-[#FF1F3D] text-white rounded text-[18px] font-[500] md:py-2 py-1 px-4 hover:bg-red-700 cursor-pointer">Blog</button>
+                </div>
+            </nav>
+            <hr>
+        </div>
+    </header>
+
+    <main class="md:max-w-7xl mx-auto w-[94%]">
+        <!-- Nav Bar Section -->
+        <section>
+            <div id="buttonNavContainer" class="flex justify-center items-center mt-6 gap-4">
+                <div>
+                    <button class="bg-[#FF1F3D] text-white rounded text-[16px] font-[500] md:py-2 py-1 px-4 hover:bg-red-700 cursor-pointer">All</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Videos items -->
+         <section>
+            <div>
+                <!-- All Cards -->
+                <div id="allCardsContainer" class="grid md:grid-cols-4
+                 gap-6 mt-6">
+                </div>
+            </div>
+         </section>
+    </main>
+    <script src="JS/main.js"></script>
+</body>
+</html>
