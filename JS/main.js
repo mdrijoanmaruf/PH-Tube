@@ -36,6 +36,35 @@ const fetchAllVideos = (id) => {
     
 }
 
+
+
+// Fetch Specific Video Details
+const fetchVideoDetails = (id) =>{
+    let url = `https://openapi.programming-hero.com/api/phero-tube/video/${id}`
+    fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+        showVideoDetails(data.video)
+    })
+}
+
+// Search Event Listener
+document.getElementById('searchInput').addEventListener('keyup', (e) => {
+    const searchQuery = e.target.value.trim(); 
+    if (searchQuery === '') {
+        fetchAllVideos();
+    } else {
+        fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchQuery}`)
+            .then((res) => res.json())
+            .then((data) => {
+                displayAllVideos(data.videos);
+            })
+            .catch((error) => {
+                console.error('Error fetching search results:', error);
+            });
+    }
+});
+
 const removeActiveClass = () =>{
     let allActive = document.getElementsByClassName('active');
     for(let i of allActive){
@@ -60,6 +89,28 @@ const displayNavMenu = (navItem) =>{
         buttonNavContainer.append(navDiv)
     }
     
+}
+
+
+// Display Video Details specific
+const showVideoDetails = (data) =>{
+    console.log(data);
+    document.getElementById('videoDetails').showModal();
+    let videoDetailsContainer = document.getElementById('videoDetailsContainer')
+    videoDetailsContainer.innerHTML = `
+        <div class="card bg-base-100 image-full shadow-sm">
+            <figure>
+                <img
+                src="${data.thumbnail}" />
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">${data.title}</h2>
+                <p>${data.description}</p>
+                <div class="card-actions justify-end">
+                </div>
+            </div>
+        </div>
+    `
 }
 
 // Display Dynamic All Videos
@@ -103,17 +154,16 @@ const displayAllVideos = (data) => {
                     <div>
                         <div class="flex gap-1 mt-1 items-center">
                             <p class="opacity-80">${i.authors[0].profile_name}</p>
-                            <div>
+                            
+                            ${i.authors[0].verified == true ? `<div>
                                 <img class="w-4" src="assets/varified.png" alt="">
-                            </div>
+                            </div>` : ''}
                         </div>
-                        <div class="mt-1">
-                            <p class="opacity-80 font-semibold">91k Views</p>
-                        </div>
+                        
                     </div>
 
                     <div>
-                        <button class="bg-green-600 text-white text-[18px] px-2 rounded cursor-pointer ">Details</button>
+                        <button onclick="fetchVideoDetails('${i.video_id}')" class="bg-green-600 text-white text-[18px] px-2 rounded cursor-pointer ">Details</button>
                     </div>
                 </div>
             </div>

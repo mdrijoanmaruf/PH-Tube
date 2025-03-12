@@ -1,72 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PH Tube</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
 
     <style>
-        .active{
-            background-color: #FF1F3D;
-        }
+      .active {
+        background-color: #ff1f3d;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header class="md:max-w-7xl mx-auto w-[94%]">
-        <div>
-            <nav class="flex justify-between gap-3 items-center py-6">
-                <div class="cursor-pointer">
-                    <a href="index.html">
-                        <img class="w-[80%]" src="assets/Logo.png" alt="">
-                    </a>
-                </div>
-                <div class="flex items-center justify-center">
-                    <input class="text-[14px] px-2 py-2 border-none bg-gray-100 rounded-md md:w-[320px] w-full" type="text" name="" placeholder="Search videos.." id="">
-                </div>
-                <div>
-                    <button class="bg-red-600 text-white rounded text-[18px] font-[500] md:py-2 py-1 px-4 hover:bg-red-700 cursor-pointer">Blog</button>
-                </div>
-            </nav>
-            <hr>
-        </div>
+      <div>
+        <nav class="flex justify-between gap-3 items-center py-6">
+          <div class="cursor-pointer">
+            <a href="index.html">
+              <img class="w-[80%]" src="assets/Logo.png" alt="" />
+            </a>
+          </div>
+          <div class="flex items-center justify-center">
+            <input
+              class="text-[14px] px-2 py-2 border-none bg-gray-100 rounded-md md:w-[320px] w-full"
+              type="text"
+              name=""
+              placeholder="Search videos.."
+              id="searchInput"
+            />
+          </div>
+          <div>
+            <button
+              class="bg-red-600 text-white rounded text-[18px] font-[500] md:py-2 py-1 px-4 hover:bg-red-700 cursor-pointer"
+            >
+              Blog
+            </button>
+          </div>
+        </nav>
+        <hr />
+      </div>
     </header>
 
     <main class="md:max-w-7xl mx-auto w-[94%] min-h-screen">
-        <!-- Nav Bar Section -->
-        <section>
-            <div id="buttonNavContainer" class="flex justify-center items-center mt-6 gap-4">
-                <div>
-                    <button id="allBtn" class="bg-gray-600 active btn text-white rounded text-[16px] font-[500] md:py-2 py-1 px-4 hover:bg-red-700 cursor-pointer" onclick="fetchAllVideos()">All</button>
-                </div>
+      <!-- Nav Bar Section -->
+      <section>
+        <div
+          id="buttonNavContainer"
+          class="flex justify-center items-center mt-6 gap-4"
+        >
+          <div>
+            <button
+              id="allBtn"
+              class="bg-gray-600 active btn text-white rounded text-[16px] font-[500] md:py-2 py-1 px-4 hover:bg-red-700 cursor-pointer"
+              onclick="fetchAllVideos()"
+            >
+              All
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- All Videos items -->
+      <section>
+        <div>
+          <!-- All Cards -->
+          <div
+            id="allCardsContainer"
+            class="grid md:grid-cols-4 gap-6 md:mt-6 mt-12 min-h-[65vh]"
+          ></div>
+        </div>
+      </section>
+
+      <section>
+        <dialog id="videoDetails" class="modal">
+          <div class="modal-box">
+            <div id="videoDetailsContainer">
+                hello
             </div>
-        </section>
-
-        <!-- All Videos items -->
-         <section>
-            <div>
-                <!-- All Cards -->
-                <div id="allCardsContainer" class="grid md:grid-cols-4
-                 gap-6 md:mt-6 mt-12 min-h-[65vh]">
-                 
-                </div>
+            <div class="modal-action">
+              <form method="dialog">
+                <button class="btn">Close</button>
+              </form>
             </div>
-         </section>
+          </div>
+        </dialog>
+      </section>
 
-
-
-
-         <footer class="mt-8">
-            <hr>
-            <p class="text-center py-5
-            ">Developed by <a class="text-red-600" href="https://rijoan.com">Md Rijoan Maruf</a></p>
-         </footer>
+      <footer class="mt-8">
+        <hr />
+        <p class="text-center py-5">
+          Developed by
+          <a class="text-red-600" href="https://rijoan.com">Md Rijoan Maruf</a>
+        </p>
+      </footer>
     </main>
     <script src="JS/main.js"></script>
-</body>
+  </body>
 </html>
